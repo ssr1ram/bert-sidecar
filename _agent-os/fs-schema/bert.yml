@@ -1,0 +1,19 @@
+
+# Filesystem Schema for the 'bert' addon
+
+dynamic_structure:
+  - path: agent-os/bert/
+    description: "A directory for the 'bert' addon."
+    subdirectories:
+      - path: tasks/
+        description: "A directory for tasks created by the 'bert' addon."
+        files:
+          - pattern: "task-[nn]-[slug].md"
+            description: "A file representing a single task."
+            placeholders:
+              - name: "[nn]"
+                example: "01"
+                description: "A zero-padded task number."
+              - name: "[slug]"
+                example: "create-new-document"
+                description: "A kebab-cased slug from the task title."

@@ -1,0 +1,27 @@
+# Task Assignments for Bert Addon Implementation
+# Maps task groups from tasks.md to implementing subagents
+
+task_assignments:
+  - task_group: "Phase 1: Foundation & Configuration"
+    assigned_subagent: "general-implementer"
+    rationale: "Creating directory structure, configuration files, and documentation. Best handled by general implementer."
+
+  - task_group: "Phase 2: Session Initialization System"
+    assigned_subagent: "general-implementer"
+    rationale: "Creating command files and documentation. No backend/frontend specific logic required."
+
+  - task_group: "Phase 3: Task Author Command"
+    assigned_subagent: "api-engineer"
+    rationale: "Complex command logic with file parsing, analysis, and task generation. API engineer handles business logic well."
+
+  - task_group: "Phase 4: Enhanced Task Numbering System"
+    assigned_subagent: "api-engineer"
+    rationale: "Complex algorithmic logic for smart padding and nested task support. Requires careful implementation of business rules."
+
+  - task_group: "Phase 5: Living Document Tracking System"
+    assigned_subagent: "general-implementer"
+    rationale: "Creating overlay and include files with instructions. General implementation task."
+
+  - task_group: "Phase 6: Integration Testing & Documentation"
+    assigned_subagent: "testing-engineer"
+    rationale: "End-to-end testing, edge case testing, and documentation validation. Perfect fit for testing engineer."

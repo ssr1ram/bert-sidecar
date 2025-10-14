@@ -1,0 +1,38 @@
+# Verifiers Configuration
+# Defines which subagents verify which types of implementations
+
+verifiers:
+  - id: backend-verifier
+    name: Backend Verifier
+    description: Verifies database and API implementations
+    responsibilities:
+      - API endpoint verification
+      - Business logic verification
+      - Database schema verification
+      - Backend integration testing
+
+  - id: frontend-verifier
+    name: Frontend Verifier
+    description: Verifies UI components, styling, responsive design, user experience
+    responsibilities:
+      - UI component verification
+      - Styling verification
+      - Responsive design verification
+      - User experience testing
+
+  - id: testing-engineer
+    name: Testing Engineer
+    description: Verifies test implementation and coverage
+    responsibilities:
+      - Test coverage verification
+      - Test quality verification
+      - Test fixture verification
+
+  - id: implementation-verifier
+    name: Implementation Verifier
+    description: Verifies end-to-end implementation of features
+    responsibilities:
+      - End-to-end testing
+      - Feature completeness verification
+      - Integration verification
+      - Documentation verification

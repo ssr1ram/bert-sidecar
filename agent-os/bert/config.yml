@@ -1,0 +1,46 @@
+# Bert Configuration File
+# This file defines frontmatter structure and living document settings for the bert addon system
+
+# Claude Code standard frontmatter (command-specific, optional)
+# These fields can be used in command files to configure Claude's behavior
+claude_frontmatter:
+  allowed_tools: []           # List of tools Claude can use (e.g., [Read, Bash, Glob, Grep])
+  description: ""             # Brief description of what the command does
+  model: ""                   # Specific model to use (optional)
+  argument_hint: ""           # Hint text shown to users about expected arguments
+  disable_model_invocation: false  # Set to true for commands that only output text
+
+# Bert task frontmatter (required for all task files)
+# These fields are used in task markdown files in agent-os/bert/tasks/
+task_frontmatter:
+  required:
+    - status      # Task status: pending | in-progress | completed | blocked
+    - created     # Creation date in YYYY-MM-DD format
+  optional:
+    - updated     # Last update date in YYYY-MM-DD format
+    - parent      # Parent task number if this is a subtask (e.g., "4" or "4.1")
+    - related     # Array of related task numbers for cross-referencing
+
+# Living document status tracking system
+# Used for tracking section-level review status in generated documents
+living_docs:
+  # Valid status values for document sections
+  statuses:
+    - draft           # Initial creation, not yet reviewed
+    - in-progress     # Currently being updated or edited
+    - reviewed        # Reviewed and verified as accurate
+    - needs-update    # Identified as requiring revision
+
+  # HTML comment format for embedding status in markdown files
+  # Placeholders: {status} and {date} will be replaced with actual values
+  comment_format: "<!-- bert:status={status}, updated={date} -->"
+
+  # Heading level to track (h3 means ### headings)
+  tracking_level: h3
+
+  # Status transition rules (for reference)
+  # draft → in-progress (when first edit is made)
+  # draft → reviewed (if comprehensive review completed without edits)
+  # in-progress → reviewed (when edits are complete and verified)
+  # reviewed → needs-update (if identified as outdated)
+  # needs-update → in-progress (when starting to address updates)

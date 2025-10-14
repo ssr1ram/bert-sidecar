@@ -1,0 +1,53 @@
+# Implementers Configuration
+# Defines which subagents handle which types of implementation tasks
+
+implementers:
+  - id: api-engineer
+    name: API Engineer
+    description: Handles API endpoints, controllers, business logic, request/response handling
+    responsibilities:
+      - API design and implementation
+      - Backend business logic
+      - Request/response handling
+      - Integration with services
+    verified_by: backend-verifier
+
+  - id: ui-designer
+    name: UI Designer
+    description: Handles UI components, views, layouts, styling, responsive design
+    responsibilities:
+      - UI component creation
+      - View implementation
+      - Styling and theming
+      - Responsive design
+    verified_by: frontend-verifier
+
+  - id: database-engineer
+    name: Database Engineer
+    description: Handles migrations, models, schemas, database queries
+    responsibilities:
+      - Database schema design
+      - Migration creation
+      - Model implementation
+      - Query optimization
+    verified_by: backend-verifier
+
+  - id: testing-engineer
+    name: Testing Engineer
+    description: Handles test files, test coverage, test fixtures
+    responsibilities:
+      - Unit test creation
+      - Integration test creation
+      - Test coverage analysis
+      - Test fixture management
+    verified_by: testing-engineer
+
+  - id: general-implementer
+    name: General Implementer
+    description: Handles general implementation tasks that don't fit specific categories
+    responsibilities:
+      - Configuration files
+      - Documentation
+      - Command creation
+      - General scripting
+    verified_by: implementation-verifier
