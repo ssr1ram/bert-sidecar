@@ -10,17 +10,29 @@ bert provides custom slash commands for Claude Code to help you manage tasks and
 
 ### Installation
 
-#### Quick Install
+#### Quick Install (One-Liner)
 
-1. Clone this repository to your local machine:
+Run this command from your project directory:
 
 ```bash
-git clone https://github.com/ssr1ram/bert-sidecar.git
-cd bert-sidecar
+curl -fsSL https://raw.githubusercontent.com/ssr1ram/bert-sidecar/main/scripts/base-install.sh | bash
 ```
 
-2. Navigate to your target project directory and run the installer:
+This will:
+- Ask if the current directory is where you want to install the commands
+- Download the bert command files from GitHub to your project's `.claude/commands/bert`
+- Verify the installation
 
+#### Local Install
+
+If you prefer to install from a local clone:
+
+1. Clone this repository:
+```bash
+git clone https://github.com/ssr1ram/bert-sidecar.git
+```
+
+2. Navigate to your project directory and run the installer:
 ```bash
 cd /path/to/your/project
 bash /path/to/bert-sidecar/scripts/base-install.sh
@@ -28,7 +40,7 @@ bash /path/to/bert-sidecar/scripts/base-install.sh
 
 The installer will:
 - Ask if the current directory is where you want to install the commands
-- Copy the bert command files from `.claude/commands/bert` to your project's `.claude/commands/bert`
+- Copy the bert command files from the local clone to your project
 - Verify the installation
 
 #### Manual Install
