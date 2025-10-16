@@ -63,18 +63,18 @@ cp -pr bert-sidecar/.claude/commands/bert /path/to/your/project/.claude/commands
 
 After installation, the following slash commands will be available in Claude Code:
 
-### `/agent-os:bert:start`
+### `/bert:start`
 Initialize a bert session context for your project.
 
-### `/agent-os:bert:task-author`
+### `/bert:task-author`
 Generate a parent task that identifies improvement areas for your project.
 
-### `/agent-os:bert:task-create`
+### `/bert:task-create`
 Create a new task file with structured frontmatter.
 
 Example:
 ```
-/agent-os:bert:task-create "implement user authentication"
+/bert:task-create "implement user authentication"
 ```
 
 ## What Gets Installed
