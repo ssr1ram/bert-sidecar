@@ -1,0 +1,5 @@
+# Bert Task Management Configuration
+
+# Directory where task files are stored
+# Default: bert/tasks
+tasks_directory: bert/tasks

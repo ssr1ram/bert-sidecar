@@ -1,100 +1,89 @@
-# bert custom slash command addon for agent-os
+# bert custom slash commands
 
-bert provides a custom slash command to AI code cli agents such as claude and gemini.
-
-This custom slash command works as an addon to an existing set of slash commands that agent-os provides.
+bert provides custom slash commands for Claude Code to help you manage tasks and workflows.
 
 ## Getting Started
 
 ### Requirements
 
-- You should be using either `claude code`, `cursor` or `gemini cli`
-- You should have `agent-os` installed
+- Claude Code CLI installed and configured
 
-### Installing the bert addon
+### Installation
 
-#### Quick Install (Recommended)
+#### Quick Install
 
-Run this one-line command from your terminal:
+1. Clone this repository to your local machine:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ssr1ram/agent-os-addon-bert/main/scripts/base-install.sh | bash
+git clone https://github.com/ssr1ram/bert-sidecar.git
+cd bert-sidecar
+```
+
+2. Navigate to your target project directory and run the installer:
+
+```bash
+cd /path/to/your/project
+bash /path/to/bert-sidecar/scripts/base-install.sh
 ```
 
 The installer will:
-- Detect your AI agent (Claude, Cursor, or Gemini)
-- Prompt you for your target repository path
-- Install all necessary files and commands
-- Provide next steps
+- Ask if the current directory is where you want to install the commands
+- Copy the bert command files from `.claude/commands/bert` to your project's `.claude/commands/bert`
+- Verify the installation
 
 #### Manual Install
 
 If you prefer to install manually:
 
-1. Clone this repo to agent-os-addon-bert
+1. Clone this repository:
+```bash
+git clone https://github.com/ssr1ram/bert-sidecar.git
+```
 
-2. Add required files to the `<repo-root>/agent-os` directory
+2. Copy the command files to your project:
+```bash
+cp -pr bert-sidecar/.claude/commands/bert /path/to/your/project/.claude/commands/bert
+```
 
-    2.1 Copy over the fs-schema directory
-    This gives `bert` a good understanding of the filesystem schema that agent-os uses
-
-    ```
-    cp -pr path/to/agent-os-addon-bert/agent-os/fs-schema path/to/<your-repo-root>/agent-os/fs-schema
-    ```
-
-    2.2 Copy over the custom slash command
-
-    This lets you invoke the custom slash command from the claude code cli
-
-    - For claude
-        - copy recursively dir: agent-os/bert/commands.claude/bert to: .claude/commands/agent-os/bert
-    - For cursor
-        - copy recursively dir: agent-os/bert/commands.cursor/bert to: .cursor/commands/agent-os/bert
-    - For gemini
-        - copy recursively dir: agent-os/bert/commands.gemini/bert to: .gemini/commands/agent-os/bert
-
-3. Restart your AI agent and find slash command "/agent-os:bert:task-create" available.
-
+3. Restart Claude Code
 
 ## Usage
 
-### Create a new task
+After installation, the following slash commands will be available in Claude Code:
 
-1. Use the slash command
-```
-/agent-os:bert:task-create "brief title"
-```
+### `/agent-os:bert:start`
+Initialize a bert session context for your project.
 
-2. Edit the task file created
-This will create a task file with basic frontmatter. 
-```
-<repo-root>/
-    agent-os/
-        bert/
-            tasks/
-                task-01-brief-title.md
-```
+### `/agent-os:bert:task-author`
+Generate a parent task that identifies improvement areas for your project.
 
-3. Reference this task file in your prompt within `<repo-root>` as follows
+### `/agent-os:bert:task-create`
+Create a new task file with structured frontmatter.
+
+Example:
 ```
-@agent-os/bert/tasks/task-01-brief-title.md run this
+/agent-os:bert:task-create "implement user authentication"
 ```
 
-4. Create subtasks for a task
-    - In the parent task say `task-03-foo.md` if you have a Tasks section with a set of tasks laid out like
-    ```
-    ## Task
-    - [ ] foo
-    - [ ] baz
-    ```
-    - `/agent-os/bert/task-create -p 3` would automatically create task-3.1 and task-3.2
+## What Gets Installed
 
+The installation copies the following files to your project's `.claude/commands/bert/` directory:
+- `start.md` - Session initialization command
+- `task-author.md` - Task authoring command
+- `task-create.md` - Task creation command
+- `config.yml` - Configuration file
 
+## Troubleshooting
 
-## Roadmap
+If the slash commands don't appear after installation:
+1. Make sure you've restarted Claude Code
+2. Verify the files are in `.claude/commands/bert/` in your project directory
+3. Check that the files have proper read permissions
 
-### Coming soon...
-- `save task output` - Create an easy way to prompt the AI to save task output
-- `/agent-os:bert:task-edit` <num> - edits the created task bases on user input. This is where the user could use unstructured conversation to reference spec files, tasks and other artefacts that agent-os has produced 
-    - Once AI edits the file, the user can choose to manuallly make any additional edits and then have the AI execute the whole file
-- `/agent-os:bert:task-kanban` <num> - change the tasks status, archive, delete etc.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
